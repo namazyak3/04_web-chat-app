@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "strict": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@/": ["./src/*"]
+    }
+  },
+  "include": [
+    "**/**/*.ts",
+    "**/*.ts"
+  ]
+}

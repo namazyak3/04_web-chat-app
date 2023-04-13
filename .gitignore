@@ -1,0 +1,9 @@
+# Enviroment
+.env
+
+# Client-Server
+client/.next
+client/node_modules
+
+# Socket-Api-Server
+server/node_modules

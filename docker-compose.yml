@@ -35,6 +35,8 @@ services:
       - ./server:/server
     env_file:
       - .env
+    environment:
+      - CHOKIDAR_USEPOLLING=true
     ports:
       - ${SERVER_PORT}:${SERVER_PORT}
-    command: sh -c "npm run start"
+    command: sh -c "${SERVER_COMMAND}"

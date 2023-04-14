@@ -16,24 +16,32 @@ const io = new Server(server, {
   // corsの設定
   cors: {
     origin: [
-      `http://${config.client.host}:${config.client.port}`
+      `http://${config.client.host}:${config.client.port}`,
+      `http://localhost:${config.client.port}`
     ]
   }
 })
 
+interface Data {
+  user: {
+    name: string
+  }
+  message: string
+}
+
 //* 接続
 io.on("connection", (socket: Socket) => {
-  logger("Socket.io", "Connecting with client.", "\x1b[35m")
+  // logger("Socket.io", "Connecting with client.", "\x1b[35m")
 
   //* メッセージが送信された
-  socket.on("send_message", (data: string) => {
+  socket.on("send_message", (data: Data) => {
     io.emit("recived_message", data)
   })
 
   //* 切断
-  socket.on("disconnect", () => {
-    logger("Socket.io", "Disconnected from client", "\x1b[35m")
-  })
+  // socket.on("disconnect", () => {
+  //   logger("Socket.io", "Disconnected from client", "\x1b[35m")
+  // })
 })
 
 // === Server listen ===
